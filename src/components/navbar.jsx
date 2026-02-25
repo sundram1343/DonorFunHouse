@@ -2,13 +2,18 @@ import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Avatar } from 'react-native-paper'
-
+import { useNavigation } from '@react-navigation/native'
+import {useAuth} from '../Context/AuthContext'
+import Profile from '../pages/Profile/profile'
+import LoginSystem from '../pages/LoginSystem/LoginSystem'
 const Navbar = () => {
+    const navigation = useNavigation();
+    const {IsLoggedIn}=useAuth();
   return (
     <SafeAreaView style={styles.navbar}>
 
-      <Text style={styles.title}>DonorFunHouse</Text>
-      <Pressable>
+      <Text style={styles.title} >DonorFunHouse</Text>
+      <Pressable onPress={()=>IsLoggedIn?navigation.navigate('Profile'):navigation.navigate('LoginSystem')}>
         <Avatar.Icon
           size={40}
           icon="account"

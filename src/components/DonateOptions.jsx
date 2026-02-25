@@ -11,7 +11,6 @@ const DonateOptions = () => {
     <Text style={styles.Readytext}>Ready to Make a Difference?</Text>
     <View style={styles.DonationAttraction}>
         <Text style={styles.AttractionText}>Every rupee you give goes exactly where you see it. No hidden fees, no guesswork — just transparent impact.</Text>
-
     </View>
     <View style={styles.DonateOptions}>
       <Text style={styles.DonateNow}>Donate Now</Text>
