@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
+import { useNavigation } from '@react-navigation/native'
 const DonateOptions = () => {
+  const navigation = useNavigation();
   return (
     <>
     <View style={styles.container}>
@@ -12,10 +13,10 @@ const DonateOptions = () => {
     <View style={styles.DonationAttraction}>
         <Text style={styles.AttractionText}>Every rupee you give goes exactly where you see it. No hidden fees, no guesswork — just transparent impact.</Text>
     </View>
-    <View style={styles.DonateOptions}>
+    <Pressable style={styles.DonateOptions} onPress={()=>navigation.navigate('Login')}>
       <Text style={styles.DonateNow}>Donate Now</Text>
       <Text style={styles.SeeMonthlyReport}>See Monthly Report</Text>
-    </View>
+    </Pressable>
     </View>
     </>
   )

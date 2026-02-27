@@ -3,17 +3,17 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Avatar } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
-import {useAuth} from '../Context/AuthContext'
+import { useAuth } from '../Context/AuthContext'
 import Profile from '../pages/Profile/profile'
-import LoginSystem from '../pages/LoginSystem/LoginSystem'
+import LoginSystem from '../pages/LoginSystem/Loginpage'
 const Navbar = () => {
-    const navigation = useNavigation();
-    const {IsLoggedIn}=useAuth();
+  const navigation = useNavigation();
+  const { IsLoggedIn } = useAuth();
   return (
     <SafeAreaView style={styles.navbar}>
 
       <Text style={styles.title} >DonorFunHouse</Text>
-      <Pressable onPress={()=>IsLoggedIn?navigation.navigate('Profile'):navigation.navigate('LoginSystem')}>
+      <Pressable onPress={() => IsLoggedIn ? navigation.navigate('Profile') : navigation.navigate('Login')}>
         <Avatar.Icon
           size={40}
           icon="account"
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   title: {
-    fontSize:30,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#000',
 
