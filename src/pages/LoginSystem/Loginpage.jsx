@@ -1,11 +1,31 @@
 import { StyleSheet, Text, View,TextInput,Pressable } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 //import of pages
-import Signup from './Signup'
+import {useAuth} from '../../Context/AuthContext'
 //import of react packages
 import { useNavigation } from '@react-navigation/native'
 const LoginSystem = () => {
+  const {authUser,setauthUser,IsLoggedIn,setIsLoggedIn}=useAuth();
+  const [Username,setIsUsername]=useState('');
+  const [Password, setIsPassword]=useState('');
+  const handleLogin=()=>{
+
+   try{
+    if (Username === '' || Password === '') {      console.error('Enter vaild Details')
+      return;
+    }
+
+    else if(Username==='admin'&&Password==='admin123'){
+      setauthUser(
+        'Sundram'
+      );
+      setIsLoggedIn(true);
+    }
+   }catch(error){
+      console.error('Invalid Credintials',error);
+  }
+}
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -15,20 +35,25 @@ const LoginSystem = () => {
         <Text style={styles.UsernameText}>Username</Text>
         <TextInput style={styles.UsernameInput}
         placeholder='Enter your username' 
-        placeholderTextColor="#333333"/>
+        placeholderTextColor="#333333"
+        value={Username}
+        onChangeText={(text)=>setIsUsername(text)}
+        />
         <Pressable onPress={()=>console.log('Forgot Username')}>
         <Text style={styles.ForgotPassword}>Forgot Username?</Text>  
         </Pressable>      
         <Text style={styles.UsernameText}>Password</Text>
         <TextInput style={styles.UsernameInput}
-         placeholder='Enter your password' 
-         placeholderTextColor="#333333"
-         secureTextEntry={true} 
+          placeholder='Enter your password' 
+          placeholderTextColor="#333333"
+          secureTextEntry={true}
+          value={Password}
+          onChangeText={(text)=>setIsPassword(text)} 
         />
         <Pressable onPress={()=>console.log('Forgot Password')}>
         <Text style={styles.ForgotPassword}>Forgot Password?</Text>
         </Pressable>
-        <Pressable style={styles.LoginButton} onPress={()=>console.log('Login')}>
+        <Pressable style={styles.LoginButton} onPress={()=>handleLogin()}>
           <Text style={styles.LoginButtonText}>Login</Text>
         </Pressable>
         <Pressable onPress={()=>navigation.navigate('Signup')}>

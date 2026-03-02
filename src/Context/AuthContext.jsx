@@ -4,12 +4,12 @@ export function useAuth(){
     return useContext(AuthContext);
 }
 export function AuthProvider(props){
-    const [authUser,setauthUser]=useState(null);
-    const [IsLoggedIn,setIsLoggedIn]=useState(false);
+    const [authUser,setauthUser]=useState('Sundram');
+    const [isLoggedIn,setIsLoggedIn]=useState(true);
     const value={
         authUser,
         setauthUser,
-        IsLoggedIn,
+        isLoggedIn,
         setIsLoggedIn
     }
     return(

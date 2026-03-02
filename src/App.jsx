@@ -8,15 +8,16 @@ import Home1 from './pages/home/home1';
 import LoginSystem from './pages/LoginSystem/Loginpage'
 import Profile from './pages/Profile/profile';
 import SignUp from './pages/LoginSystem/Signup';
+import Home from './pages/home/home';
 const Stack = createStackNavigator();
 const AppNavigator = () => {
-  const { IsLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   return (
-    <Stack.Navigator>
-      {IsLoggedIn ? (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {isLoggedIn ? (
         <>
-          <Text>test</Text>
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
         </>
       ) : (
