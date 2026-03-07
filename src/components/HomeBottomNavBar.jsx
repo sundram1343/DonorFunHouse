@@ -2,22 +2,31 @@ import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useAuth } from '../Context/AuthContext';
-
+import Icon1 from 'react-native-vector-icons/FontAwesome6';
+import { useNavigation} from '@react-navigation/native';
 const HomeBottomNavBar = () => {
+  const navigation=useNavigation();
   const { authUser } = useAuth();
-
   return (
+    <>
     <View style={styles.container}>
-      <Pressable onPress={() => console.log('Home pressed')}>
-        <Icon name="home" size={28} color="#000" />
+      <Pressable onPress={() => navigation.navigate('Home')}>
+        <Icon name="home" size={26} color="#000" />
       </Pressable>
-      <Pressable>
-        <Icon name="search" size={28} color="#000" />
+      <Pressable onPress={()=>navigation.navigate('Search')}>
+        <Icon name="search" size={26} color="#000" />
       </Pressable>
-      <Pressable onPress={() => console.log('Profile pressed')}>
-        <Icon name={authUser ? "person" : "login"} size={28} color="#000" />
+      <Pressable onPress={()=>navigation.navigate('Community')}>
+        <Icon name="message-outline" size={26} color="#000"/>
+      </Pressable>
+      <Pressable onPress={()=> navigation.navigate('Donation')}>
+        <Icon1 name="hand-holding-dollar" size={26} color="#000"/>
+      </Pressable>
+      <Pressable onPress={() => navigation.navigate('Profile')}>
+        <Icon name={authUser ? "person" : "login"} size={26} color="#000" />
       </Pressable>
     </View>
+    </>
   );
 };
 
@@ -31,10 +40,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 8,
     borderTopWidth: 1,
     borderColor: '#ccc',
     backgroundColor: '#fff',
-    marginTop: 800, // Ensure the navbar stays at the bottom
+    marginTop: 780,
+    borderRadius:15,
+    width:'90%',
+    marginLeft:25
   },
+
 });
