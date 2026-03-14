@@ -44,10 +44,11 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#eee',
     backgroundColor: '#fff',
-    marginTop: 780,
+    marginbottom:10,
     borderRadius:15,
     width:'90%',
-    marginLeft:25
+    marginLeft:25,
+    position:'absolute',
   },
 
 });
