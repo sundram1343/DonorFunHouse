@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Pressable,Image } from 'react-native';
 import React from 'react';
+import O_image from '../../assets/ONegative.png';
 import { useAuth } from '../../Context/AuthContext';
 import HomeBottomNavBar from '../../components/HomeBottomNavBar';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -10,7 +11,7 @@ const home = () => {
       <View style={styles.container}>
         <HomeBottomNavBar />
         <View>
-          <Text style={styles.welcomeText}>Welcome, {authUser?.name}!</Text>
+          <Text style={styles.welcomeText}>Welcome, {authUser?.name || 'User'}!</Text>
           <Text style={styles.ImpactMadeText}>Impact Made</Text>
           <View style={styles.Impactcontainer}>
             <Pressable style={styles.impactbox}>
@@ -43,9 +44,28 @@ const home = () => {
               <Text style={styles.StartFundText}>Start a Fundraiser</Text>
             </Pressable>
           </View>
-          <Text style={styles.UrgentNeedText}>❗Urgent Need</Text>
+          <Text style={styles.UrgentNeedText}>❗Urgent Need near you</Text>
           <Pressable>
             <Text style={styles.ViewAllText}>View All</Text>
+          </Pressable>
+          <View style={styles.urgentneedBox}>
+            <View style={styles.urgentneedobject}>
+              <Image source={O_image} style={styles.urgentneedimage} />
+              <View style={styles.urgentneedinfo}>
+              <Text style={styles.urgentneedobjecttext}>Need of Blood O-</Text>
+              <View style={styles.urgentneedobjectaddress}>
+                <Text style={styles.name}>City General Hospital</Text>
+                <Text style={styles.distance}>2.5 km away</Text>
+              </View>
+              </View>
+              <Pressable style={styles.urgentneedobjectdonate}>
+                <Text style={styles.urgentneedobjectdonatetext}>Donate Now</Text>
+              </Pressable>
+            </View>
+          </View>
+          <Text style={styles.ActiveCampaignsText}>Active Campaigns</Text>
+          <Pressable>
+            <Text style={styles.ViewAllText2}>View All</Text>
           </Pressable>
         </View>
       </View>
@@ -57,7 +77,7 @@ export default home;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%'
   },
   welcomeText: {
     marginTop: 10,
@@ -165,7 +185,77 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginTop: -25,
     fontSize: 18,
-    color:'#192e4b',
+    color:'#132845',
   },
-  
+  urgentneedBox: {
+    flexDirection: 'column',
+    marginTop: 20,
+    marginLeft: 20,
+    gap:15,
+  },
+  urgentneedinfo:{
+  flex: 1, 
+  marginLeft: 10,
+  },
+  urgentneedobject: {
+    borderWidth: 1,
+    borderRadius: 10,
+    flexDirection: 'row',
+    gap: 15,
+    height: 80,
+    width: 380,
+    justifyContent: 'space-between',
+    backgroundColor:'#594ed555',
+  },
+  urgentneedimage: {
+    height: 50,
+    width:50,
+    marginTop: 10,
+    marginLeft: 10,
+  },
+  urgentneedobjecttext: {
+    fontSize: 24,
+    marginRight:13
+  },
+  urgentneedobjectaddress: {
+    flexDirection: 'row',
+    gap: 10,
+    marginHorizontal:-12,
+    marginTop: 15,
+  },
+  urgentneedobjectdonate:{
+    borderWidth: 1,
+    borderRadius: 10,
+    height:35,
+    marginTop: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 3,
+    backgroundColor:'#e63746'
+  },
+  urgentneedobjectdonatetext:{
+    marginTop:2,
+    marginRight: 12,
+    textAlign: 'center',
+    marginLeft: 12,
+    color: '#ffff',
+  },
+  name:{
+    color:'#080808'
+  },
+  distance:{
+    color:'#6f737f'
+  },
+  ViewAllText2:{
+    alignSelf: 'flex-end',
+    marginRight: 10,
+    marginTop: -19,
+    fontSize: 18,
+    color:'#132845',
+  },
+  ActiveCampaignsText:{
+    marginTop: 10,
+    marginLeft:10,
+    fontSize: 28,
+  }
 });
