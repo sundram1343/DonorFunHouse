@@ -4,6 +4,7 @@ import O_image from '../../assets/ONegative.png';
 import { useAuth } from '../../Context/AuthContext';
 import HomeBottomNavBar from '../../components/HomeBottomNavBar';
 import Icon from 'react-native-vector-icons/AntDesign';
+import * as Progress from 'react-native-progress';
 const home = () => {
   const { authUser } = useAuth();
   return (
@@ -67,6 +68,22 @@ const home = () => {
           <Pressable>
             <Text style={styles.ViewAllText2}>View All</Text>
           </Pressable>
+          <View style={styles.ActiveCampaignsBox}>
+            <View style={styles.ActievCampaignsObject}>
+              <View style={styles.ActiveCampaignInfo}>
+                <Text style={styles.ActiveCampaignsInfoText}>Need Monety For Operation</Text>
+                <Text style={styles.ActiveCampaignsAddress}>District Health Board</Text>
+              </View>
+              <View style={styles.ActiveCampaignMoney}>
+                <Text style={styles.MoneyRaised}>Money Raised: $500</Text>
+                <Text style={styles.MoneyGoal}>Goal: $1000</Text>
+              </View>
+              <Progress.Bar progress={0.5} width={150} color="#e63746" />
+              <Pressable style={styles.ActiveCampaignsDonateButton}>
+                <Text style={styles.ActiveCampaignsDonateText}>Donate Now</Text>
+              </Pressable>
+            </View>
+          </View>
         </View>
       </View>
     </>
@@ -249,7 +266,7 @@ const styles = StyleSheet.create({
   ViewAllText2:{
     alignSelf: 'flex-end',
     marginRight: 10,
-    marginTop: -19,
+    marginTop: -25,
     fontSize: 18,
     color:'#132845',
   },
@@ -257,5 +274,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft:10,
     fontSize: 28,
+  },
+  ActiveCampaignsBox:{
+    marginLeft:15,
+    marginTop:10,
+    borderRadius:10,
+    borderWidth:1,
+    height:120,
+    width:380,
+    gap:15
+  },
+  ActiveCampaignInfo:{
+    
   }
 });
