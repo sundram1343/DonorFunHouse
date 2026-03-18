@@ -11,7 +11,7 @@ const home = () => {
     <>
       <View style={styles.container}>
         <HomeBottomNavBar />
-        <View>
+        <View style={{flex:1}}>
           <Text style={styles.welcomeText}>Welcome, {authUser?.name || 'User'}!</Text>
           <Text style={styles.ImpactMadeText}>Impact Made</Text>
           <View style={styles.Impactcontainer}>
@@ -78,7 +78,13 @@ const home = () => {
                 <Text style={styles.MoneyRaised}>Money Raised: $500</Text>
                 <Text style={styles.MoneyGoal}>Goal: $1000</Text>
               </View>
-              <Progress.Bar progress={0.5} width={150} color="#e63746" />
+              <Progress.Bar progress={0.5} 
+                width={350}    
+                height={10}     
+                color="#e63746" 
+                borderRadius={5} 
+                style={{ marginLeft: 7, marginTop: 5 }}
+              />
               <Pressable style={styles.ActiveCampaignsDonateButton}>
                 <Text style={styles.ActiveCampaignsDonateText}>Donate Now</Text>
               </Pressable>
@@ -280,11 +286,44 @@ const styles = StyleSheet.create({
     marginTop:10,
     borderRadius:10,
     borderWidth:1,
-    height:120,
+    height:130,
     width:380,
-    gap:15
+    gap:15,
+    backgroundColor:'#c0c8dc'
   },
   ActiveCampaignInfo:{
-    
+    flexDirection: 'column',
+    gap: 3,
+  },
+  ActiveCampaignsInfoText:{
+    fontSize: 25,
+    marginTop: 7,
+    marginLeft: 7,
+  },
+  ActiveCampaignsAddress:{
+    marginLeft: 7,
+    color:'#6f737f',
+    fontsize:18,
+  },
+  ActiveCampaignMoney:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  MoneyRaised:{
+    marginLeft:7,
+    color:"#080808"
+  },
+  MoneyGoal:{
+    color:"#080808",
+    textAlign: 'flex-end',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    marginRight: 20,
+  },
+  progressbar:{
+    marginLeft: 7,
+    marginTop: 5,
+    width:300,
+    height:10
   }
 });
