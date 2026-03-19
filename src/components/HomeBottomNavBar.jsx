@@ -34,6 +34,7 @@ export default HomeBottomNavBar;
 
 const styles = StyleSheet.create({
   container: {
+    position:'absolute',
     bottom: 0,              
     left: 0,
     right: 0,
@@ -44,8 +45,10 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#eee',
     backgroundColor: '#fff',
+    marginBottom:4,
     borderRadius:15,
-    position:'absolute',
+    marginLeft:25,
+    marginRight:25
   },
 
 });

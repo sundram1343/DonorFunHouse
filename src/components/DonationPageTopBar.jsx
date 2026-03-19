@@ -1,9 +1,26 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-
+import Urgent from './Urgent';
+import FundRaiser from './FundRaiser';
+import NGO from './NGO';
+import HomeBottomNavBar from './HomeBottomNavBar';
 const DonationPageTopBar = () => {
+  const renderContent =()=>{
+    switch(Selected){
+      case 'UrgentNeed':
+        return <Urgent/>
+      case 'FundRaisers':
+        return <FundRaiser/>
+      case 'NGO' :
+        return <NGO/>
+      default:
+        return null;
+    }
+  }
   const [Selected, setisselected] = useState('UrgentNeed');
   return (
+    <>
+    <View style={{flex:1}}>
     <View style={styles.DonationConatiner}>
       <Pressable
         style={[styles.UrgnetNeed, Selected === 'UrgentNeed' && styles.Active]}
@@ -27,6 +44,12 @@ const DonationPageTopBar = () => {
         <Text style={[Selected==='NGO'?styles.ActiveText :styles.inactiveText]}>NGO</Text>
       </Pressable>
     </View>
+    <View style={{ flex: 1, marginTop: 20 }}>
+        {renderContent()}
+      </View>
+    <HomeBottomNavBar />
+    </View>
+    </>
   );
 };
 
@@ -60,5 +83,5 @@ const styles = StyleSheet.create({
     color:'#ffffff',
     textAlign:'center',
     fontWeight:'bold'
-  }
+  },
 });

@@ -94,7 +94,7 @@ const home = () => {
           </View>
         </View>
         </ScrollView>
-        <HomeBottomNavBar />
+        <HomeBottomNavBar style={styles.navbar} />
       </View>
     </>
   );
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 30,
     fontFamily: 'Poppins-Bold',
+    marginLeft:10,
   },
   ImpactMadeText: {
     fontSize: 28,
@@ -343,5 +344,8 @@ const styles = StyleSheet.create({
   },
   ActiveCampaignsDonateText:{
     color:'#ffffff'
+  },
+  navbar:{
+    position:'absolute'
   }
 });
