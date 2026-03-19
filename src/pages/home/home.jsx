@@ -12,9 +12,8 @@ const home = () => {
   return (
     <>
       <View style={styles.container}>
-        <HomeBottomNavBar />
         <ScrollView>
-        <View style={{flex:1}}>
+        <View>
           <Text style={styles.welcomeText}>Welcome, {authUser?.name || 'User'}!</Text>
           <Text style={styles.ImpactMadeText}>Impact Made</Text>
           <View style={styles.Impactcontainer}>
@@ -95,6 +94,7 @@ const home = () => {
           </View>
         </View>
         </ScrollView>
+        <HomeBottomNavBar />
       </View>
     </>
   );
@@ -104,7 +104,7 @@ export default home;
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%'
+    flex:1
   },
   welcomeText: {
     marginTop: 10,
