@@ -5,19 +5,22 @@ import { useAuth } from '../../Context/AuthContext';
 import HomeBottomNavBar from '../../components/HomeBottomNavBar';
 import Icon from 'react-native-vector-icons/AntDesign';
 import * as Progress from 'react-native-progress';
+import { useNavigation } from '@react-navigation/native';
 const home = () => {
+  const navigation= useNavigation();
   const { authUser } = useAuth();
   return (
     <>
       <View style={styles.container}>
         <HomeBottomNavBar />
+        <ScrollView>
         <View style={{flex:1}}>
           <Text style={styles.welcomeText}>Welcome, {authUser?.name || 'User'}!</Text>
           <Text style={styles.ImpactMadeText}>Impact Made</Text>
           <View style={styles.Impactcontainer}>
             <Pressable style={styles.impactbox}>
               <Text style={styles.ImpactText}>Total Donation Made</Text>
-              <Text style={styles.ImpactValue}>6</Text>
+              <Text style={styles.ImpactValue}>Rs. 6000</Text>
             </Pressable>
             <Pressable style={styles.impactbox}>
               <Text style={styles.ImpactText}>Total Campaign</Text>
@@ -26,7 +29,7 @@ const home = () => {
           </View>
           <Text style={styles.MakeImpactText}>Make Impact</Text>
           <View style={styles.DonationContainer}>
-            <Pressable style={styles.becomedonor}>
+            <Pressable style={styles.becomedonor} onPress={()=>navigation.navigate('Donation')}>
               <Icon
                 name="heart"
                 style={styles.HeartIcon}
@@ -91,6 +94,7 @@ const home = () => {
             </View>
           </View>
         </View>
+        </ScrollView>
       </View>
     </>
   );
@@ -286,7 +290,7 @@ const styles = StyleSheet.create({
     marginTop:10,
     borderRadius:10,
     borderWidth:1,
-    height:130,
+    height:145,
     width:380,
     gap:15,
     backgroundColor:'#c0c8dc'
@@ -325,5 +329,19 @@ const styles = StyleSheet.create({
     marginTop: 5,
     width:300,
     height:10
+  },
+  ActiveCampaignsDonateButton:{
+    justifyContent:'center',
+    alignItems:'center',
+    marginTop:9,
+    borderWidth:1,
+    width:90,
+    marginLeft:150,
+    height:35,
+    borderRadius:10,
+    backgroundColor:'#e63746'
+  },
+  ActiveCampaignsDonateText:{
+    color:'#ffffff'
   }
 });

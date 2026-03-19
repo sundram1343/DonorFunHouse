@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
+import DonationPageTopBar from '../../components/DonationPageTopBar'
 const donation = () => {
   return (
     <View>
-      <Text>donation</Text>
+      <DonationPageTopBar/>
     </View>
   )
 }
