@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Urgent from './Urgent';
 import FundRaiser from './FundRaiser';
 import NGO from './NGO';
-import HomeBottomNavBar from './HomeBottomNavBar';
 const DonationPageTopBar = () => {
   const renderContent =()=>{
     switch(Selected){
@@ -47,7 +46,6 @@ const DonationPageTopBar = () => {
     <View style={{ flex: 1, marginTop: 20 }}>
         {renderContent()}
       </View>
-    <HomeBottomNavBar />
     </View>
     </>
   );
