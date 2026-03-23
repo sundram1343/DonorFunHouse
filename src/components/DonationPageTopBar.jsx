@@ -25,7 +25,7 @@ const DonationPageTopBar = () => {
         style={[styles.UrgnetNeed, Selected === 'UrgentNeed' && styles.Active]}
         onPress={() => setisselected('UrgentNeed')}
       >
-        <Text style={[Selected==='UrgentNeed'?styles.ActiveText :styles.inactiveText]}>Urgnet</Text>
+        <Text style={[Selected==='UrgentNeed'?styles.ActiveText :styles.inactiveText]}>Urgent</Text>
       </Pressable>
       <Pressable
         style={[
