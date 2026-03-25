@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import * as Progress from 'react-native-progress';
 const FundRaiser = () => {
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
       <SafeAreaView>
         <Text style={styles.ActiveText}>Active Campaigns</Text>
         <View style={styles.container}>

@@ -10,7 +10,7 @@ const Urgent = () => {
           <Text style={styles.ViewAllText}>View All</Text>
         </Pressable>
       </View>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
         <View style={styles.urgentBloodneed}>
           <Text style={styles.BloodName}>O-</Text>
           <Text style={styles.NameNeeded}>O- Negative Needed</Text>
