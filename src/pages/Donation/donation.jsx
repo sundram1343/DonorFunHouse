@@ -2,14 +2,15 @@ import { StyleSheet, Text, View,KeyboardAvoidingView, Platform } from 'react-nat
 import React from 'react'
 import DonationPageTopBar from '../../components/DonationPageTopBar'
 import NavBar from '../../components/HomeBottomNavBar'
+import { SafeAreaView } from 'react-native-safe-area-context'
 const donation = () => {
   return (
     <KeyboardAvoidingView style={{ flex: 1 }}
     behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-    <View style={{flex:1}}>
+    <SafeAreaView style={{flex:1}}>
       <DonationPageTopBar/>
       <NavBar/>
-    </View>
+    </SafeAreaView>
     </KeyboardAvoidingView>
   )
 }

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, Pressable,Image } from 'react-native';
 import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import O_image from '../../assets/ONegative.png';
 import { useAuth } from '../../Context/AuthContext';
 import HomeBottomNavBar from '../../components/HomeBottomNavBar';
@@ -11,7 +12,7 @@ const home = () => {
   const { authUser } = useAuth();
   return (
     <>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <ScrollView>
         <View>
           <Text style={styles.welcomeText}>Welcome, {authUser?.name || 'User'}!</Text>
@@ -81,7 +82,7 @@ const home = () => {
                 <Text style={styles.MoneyGoal}>Goal: $1000</Text>
               </View>
               <Progress.Bar progress={0.5} 
-                width={350}    
+                width={340}    
                 height={10}     
                 color="#e63746" 
                 borderRadius={5} 
@@ -95,7 +96,7 @@ const home = () => {
         </View>
         </ScrollView>
         <HomeBottomNavBar style={styles.navbar} />
-      </View>
+      </SafeAreaView>
     </>
   );
 };
@@ -110,13 +111,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 30,
     fontFamily: 'Poppins-Bold',
-    marginLeft:10,
+    marginLeft:8,
   },
   ImpactMadeText: {
     fontSize: 28,
     fontFamily: 'bold',
     marginTop: 7,
-    marginLeft: 10,
+    marginLeft: 8,
     color: '#743131',
     fontWeight: 'bold',
   },
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 10,
     marginLeft: 10,
-    gap: 30,
+    gap: 10,
   },
   impactbox: {
     borderWidth: 1,
@@ -218,12 +219,12 @@ const styles = StyleSheet.create({
   urgentneedBox: {
     flexDirection: 'column',
     marginTop: 20,
-    marginLeft: 20,
-    gap:15,
+    marginLeft: 7,
+    gap:10,
   },
   urgentneedinfo:{
   flex: 1, 
-  marginLeft: 10,
+  marginLeft: 7,
   },
   urgentneedobject: {
     borderWidth: 1,
@@ -292,7 +293,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
     borderWidth:1,
     height:145,
-    width:380,
+    width:360,
     gap:15,
     backgroundColor:'#c0c8dc'
   },

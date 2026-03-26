@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import Urgent from './Urgent';
 import FundRaiser from './FundRaiser';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import NGO from './NGO';
 const DonationPageTopBar = () => {
   const renderContent =()=>{
@@ -18,8 +19,8 @@ const DonationPageTopBar = () => {
   }
   const [Selected, setisselected] = useState('UrgentNeed');
   return (
-    <>
-    <View style={{flex:1}}>
+  <>
+    <SafeAreaView style={{flex:1}}>
     <View style={styles.DonationConatiner}>
       <Pressable
         style={[styles.UrgnetNeed, Selected === 'UrgentNeed' && styles.Active]}
@@ -44,10 +45,10 @@ const DonationPageTopBar = () => {
       </Pressable>
     </View>
     <View style={{ flex: 1, marginTop: 20 }}>
-        {renderContent()}
-      </View>
+      {renderContent()}
     </View>
-    </>
+    </SafeAreaView>
+  </>
   );
 };
 
@@ -56,13 +57,13 @@ export default DonationPageTopBar;
 const styles = StyleSheet.create({
   DonationConatiner: {
     flexDirection: 'row',
-    gap: 90,
+    gap: 70,
     marginTop: 20,
     padding: 10,
     marginLeft: 7,
     borderWidth: 0.2,
     borderRadius: 10,
-    width: 400,
+    width: 370,
     height: 70,
   },
   UrgnetNeed: {
