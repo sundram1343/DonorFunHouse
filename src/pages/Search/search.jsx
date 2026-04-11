@@ -1,12 +1,10 @@
-import { Pressable, StyleSheet, Text, View,KeyboardAvoidingView,Image } from 'react-native'
+import { Pressable, StyleSheet, Text, View,KeyboardAvoidingView,Image,ScrollView, TextInput,Platform  } from 'react-native'
 import React, { useState } from 'react'
 import HomeBottomNavBar from '../../components/HomeBottomNavBar'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 //image imports
 import EmergencyFund from '../../assets/EmergencyFund.png'
-import UrgentBlood from '../../assets/UrgentBlood.png'
 const search = () => {
   const navigation=useNavigation();
   const [Active,setActive]=useState()
@@ -27,18 +25,17 @@ const search = () => {
       <ScrollView>
         <Text style={styles.CategoryText}>Categories</Text>
         <View style={styles.CategoriesBox}>
-          <Pressable style={styles.EmergencyFundBox}>
+          <Pressable style={styles.EmergencyFundBox} onPress={()=>navigation.navigate('Donation',{category:'FundRaisers'})}>
             <Image source={EmergencyFund} style={styles.EmergencyFund}/>
             <Text style={styles.EmergencyFundText}>Fundraisers</Text>
           </Pressable>
-          <Pressable style={styles.UrgentBloodBox}>
-            <Image souce={UrgentBlood} style={styles.UrgentBlood}/>
-            <Text>Blood Needed</Text>
-            <Text>Find Local Banks</Text>
+          <Pressable style={styles.UrgentBloodBox} onPress={()=>navigation.navigate('Donation',{category:'UrgentNeed'})}>
+            <Text style={styles.UrgentBloodText}>Blood Needed</Text>
+            <Text style={styles.UrgentBloodText}>Find Local Banks</Text>
           </Pressable>
-          <Pressable>
-            <Text>NGO Missions</Text>
-            <Text>Join the NationWide Initiative</Text>
+          <Pressable style={styles.NGOMissionsBox} onPress={()=>navigation.navigate('Donation',{category:'NGO'})}>
+            <Text style={styles.UrgentBloodText}>NGO Missions</Text>
+            <Text style={styles.UrgentBloodText}>Join the NationWide Initiative</Text>
           </Pressable>
         </View>
       </ScrollView>
@@ -57,8 +54,8 @@ const styles = StyleSheet.create({
   },
   EmergencyFundBox:{
     height:180,
-    width:390,
-    marginLeft:10,
+    width:'93%',
+    marginLeft:15,
     borderWidth:1,
     borderRadius:10,
   },
@@ -68,7 +65,7 @@ const styles = StyleSheet.create({
   },
   EmergencyFund:{
     height:178,
-    width:387,
+    width:'100%',
     borderRadius:10,
     zIndex:-1,
   },
@@ -80,5 +77,31 @@ const styles = StyleSheet.create({
   },
   UrgentBloodBox:{
     marginLeft:10,
+    height:130,
+    width:'93%',
+    borderWidth:1,
+    borderRadius:10,
+    backgroundColor:'#e63746cc',
+    zIndex:-1,
+    justifyContent:'center',
+    alignContent:'center',
+    alignItems:'center'
+  },
+  UrgentBloodText:{
+    fontSize:24,
+    fontWeight:'700',
+    color:'white'
+  },
+  NGOMissionsBox:{
+    marginLeft:10,
+    height:130,
+    width:'93%',
+    borderWidth:1,
+    borderRadius:10,
+    backgroundColor:'#000000be',
+    zIndex:-1,
+    justifyContent:'center',
+    alignContent:'center',
+    alignItems:'center'
   }
 })

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView,} from 'react-native'
 import React from 'react'
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context'
 //import of components
@@ -65,7 +65,7 @@ export default Home
 
 const styles = StyleSheet.create({
     intro: {
-        height:1200,// todo : to give flex 1 when the homepage is completed
+        height:1200,
         backgroundColor: '#ffffffdb'
     },
     introTitle:{

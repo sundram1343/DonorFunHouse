@@ -5,7 +5,6 @@ import { Avatar } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import { useAuth } from '../Context/AuthContext'
 import Profile from '../pages/Profile/profile'
-import LoginSystem from '../pages/LoginSystem/Loginpage'
 const Navbar = () => {
   const navigation = useNavigation();
   const { IsLoggedIn } = useAuth();

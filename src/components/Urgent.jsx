@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 2.5,
     height: 140,
+    width:'96%'
   },
   BloodName: {
     fontSize: 35,
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
   DonateNow: {
     borderWidth: 1,
     borderRadius: 10,
-    width: 360,
+    width: "90%",
     height: 40,
     marginLeft: 20,
     justifyContent: 'center',
@@ -120,10 +121,11 @@ const styles = StyleSheet.create({
   },
   container: {
     marginTop: 5,
+    marginLeft:5,
     borderWidth: 0.5,
     borderRadius: 8,
     height: 90,
-    widht: 400,
+    width: "96%",
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',

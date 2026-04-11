@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View ,Image,ScrollView, Pressable} from 'react-native'
+import { StyleSheet, Text, View ,Image,ScrollView, Pressable,TextInput} from 'react-native'
 import React, { useState } from 'react'
-import { TextInput } from 'react-native-gesture-handler'
 //image import
 import Bg_Image from '../assets/Bg-Image-DonationPage.png'
 import WaterDroplet from '../assets/WaterDroplet.png'
@@ -78,13 +77,13 @@ export default NGO
 const styles = StyleSheet.create({
   Bg_Image:{
     height:250,
-    width:388.4,
+    width:"100%",
     borderRadius:8
   },
   Conatiner:{
     borderWidth:0.8,
     height:400,
-    width:390,
+    width:'95%',
     marginLeft:12,
     borderRadius:8,
   },
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
     marginLeft:11,
     height:250,
-    width:390,
+    width:"95%",
   },
   Choosetext:{
     marginTop:10,
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
   AmountBox:{
     borderWidth:1,
     borderRadius:10,
-    width:100,
+    width:"25%",
     marginRight:12,
     height:40,
     justifyContent:'center',
@@ -128,7 +127,7 @@ const styles = StyleSheet.create({
   Active:{
     borderRadius:10,
     borderWidth:0.2,
-    width:100,
+    width:'25%',
     backgroundColor:'#e63746',
     justifyContent:'center',
   },
@@ -141,14 +140,14 @@ const styles = StyleSheet.create({
     borderRadius:10,
     borderWidth:0.28,
     marginTop:12,
-    width:370,
+    width:'90%',
     backgroundColor:'#f9f9f9AA'
   },
   ContributeBox:{
     borderWidth:0.67,
     height:43,
     marginLeft:15,
-    width:360,
+    width:'90%',
     marginTop:10,
     borderRadius:10,
     alignItems:'center',
@@ -176,7 +175,7 @@ const styles = StyleSheet.create({
     alignContent:'center',
     alignItems:'center',
     height:130,
-    width:390,
+    width:"95%",
     marginLeft:12,
     gap:1,
   },

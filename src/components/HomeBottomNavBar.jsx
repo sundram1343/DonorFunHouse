@@ -16,9 +16,6 @@ const HomeBottomNavBar = () => {
       <Pressable onPress={()=>navigation.navigate('Search')}>
         <Icon name="search" size={26} color="#000" />
       </Pressable>
-      <Pressable onPress={()=>navigation.navigate('Community')}>
-        <Icon name="message-outline" size={26} color="#000"/>
-      </Pressable>
       <Pressable onPress={()=> navigation.navigate('Donation')}>
         <Icon1 name="hand-holding-dollar" size={26} color="#000"/>
       </Pressable>

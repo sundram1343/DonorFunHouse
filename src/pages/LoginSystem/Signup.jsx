@@ -1,6 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View,TextInput } from 'react-native'
 import React from 'react'
-import { TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 const Signup = () => {
   const navigation = useNavigation();

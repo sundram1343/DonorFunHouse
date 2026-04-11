@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View,ScrollView, Pressable } from 'react-native'
+import { StyleSheet, Text, View,ScrollView, Pressable,Dimensions } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import * as Progress from 'react-native-progress';
 const FundRaiser = () => {
+  const screenWidth = Dimensions.get('window').width;
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
       <SafeAreaView>
@@ -16,7 +17,7 @@ const FundRaiser = () => {
           <Text style={styles.goal}>Goal:Rs.1,869,580.00</Text>
           </View>
           <Progress.Bar progress={0.62} 
-            width={365}    
+            width={screenWidth * 0.92}    
             height={10}     
             color="#e63746" 
             borderRadius={5} 
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   container:{
     borderWidth:2,
     borderRadius:6,
-    width:390,
+    width:"96%",
     marginLeft:10,
     height:200,
     matginTop:10
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     borderWidth:0.2,
     borderRadius:10,
     height:45,
-    width:366,
+    width:"93%",
     marginLeft:10,
     justifyContent:'center',
     alignContent:'center',

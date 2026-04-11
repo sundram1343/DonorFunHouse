@@ -10,7 +10,6 @@ import Profile from './pages/Profile/profile';
 import SignUp from './pages/LoginSystem/Signup';
 import Home from './pages/home/home';
 import Search from './pages/Search/search';
-import Community from './pages/Community/community';
 import Donation from './pages/Donation/donation'
 const Stack = createStackNavigator();
 const AppNavigator = () => {
@@ -23,7 +22,6 @@ const AppNavigator = () => {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Search"  component={Search}/>
-          <Stack.Screen name="Community" component={Community}/>
           <Stack.Screen name="Donation" component={Donation}/>
         </>
       ) : (

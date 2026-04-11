@@ -4,7 +4,11 @@ import Urgent from './Urgent';
 import FundRaiser from './FundRaiser';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NGO from './NGO';
+import { useRoute } from '@react-navigation/native';
 const DonationPageTopBar = () => {
+  const route = useRoute();
+  const initialCategory = route.params?.category || 'UrgentNeed';
+  const [Selected, setisselected] = useState(initialCategory);
   const renderContent =()=>{
     switch(Selected){
       case 'UrgentNeed':
@@ -17,7 +21,6 @@ const DonationPageTopBar = () => {
         return null;
     }
   }
-  const [Selected, setisselected] = useState('UrgentNeed');
   return (
   <>
     <SafeAreaView style={{flex:1}}>
@@ -63,20 +66,18 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     borderWidth: 0.2,
     borderRadius: 10,
-    width: 370,
+    width: '96%',
     height: 70,
-  },
-  UrgnetNeed: {
-    marginTop: 10,
-    marginLeft: 7,
+    justifyContent:'space-between',
+    alignItems:'center'
   },
   Active:{
     borderRadius:10,
     borderWidth:0.2,
-    width:80,
+    width:'25%',
     backgroundColor:'#e63746',
     justifyContent:'center',
-    marginTop:-1
+    
   },
   ActiveText:{
     color:'#ffffff',
