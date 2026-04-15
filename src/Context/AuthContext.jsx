@@ -4,8 +4,8 @@ export function useAuth(){
     return useContext(AuthContext);
 }
 export function AuthProvider(props){
-    const [authUser,setauthUser]=useState('Sundram');
-    const [isLoggedIn,setIsLoggedIn]=useState(true);
+    const [authUser,setauthUser]=useState('');
+    const [isLoggedIn,setIsLoggedIn]=useState(false);
     const value={
         authUser,
         setauthUser,
